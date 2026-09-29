@@ -1,0 +1,13 @@
+@import url('./valtozok.css');
+@import url('./nav.css');
+
+* {
+    font-family: var(--system);
+}
+
+#main-container {
+    align-items: center;
+    display: flex;
+    height: 90vh;
+    justify-content: center;
+}

@@ -1,0 +1,29 @@
+@import url('../valtozok.css');
+@import url('../nav.css');
+
+* {
+    font-family: var(--system);
+}
+
+#buildings-container {
+    display: grid;
+    gap: 2em;
+    grid-template-columns: repeat(2, 1fr);
+    margin: auto;
+    width: 100%;
+}
+
+.building-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+
+.building-container img {
+    display: inline-block;
+    height: 400px;
+    margin: auto;
+    object-fit: cover;
+    object-position: center;
+    width: 80%;
+}

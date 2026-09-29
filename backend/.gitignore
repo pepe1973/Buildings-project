@@ -1,0 +1,5 @@
+# Mappák
+node_modules
+
+# Állományok
+.env

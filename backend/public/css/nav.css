@@ -1,0 +1,12 @@
+nav {
+    display: flex;
+    flex-direction: row;
+    gap: 3em;
+    justify-content: center;
+}
+
+nav a {
+    color: var(--kek);
+    font-size: large;
+    text-decoration: none;
+}
