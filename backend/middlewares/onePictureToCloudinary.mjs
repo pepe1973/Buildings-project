@@ -18,7 +18,6 @@ const pictureUploader = async (req, res, next) => {
         const { kep } = req.body;
 
         if (kep.toString().includes('http')) {
-            const { kep } = req.body;
             const result = await cloudinary.uploader.upload(kep);
 
             req.body.kep = result.url;
