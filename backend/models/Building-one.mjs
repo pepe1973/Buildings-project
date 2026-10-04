@@ -10,12 +10,10 @@ const buildingSchema = new mongoose.Schema(
             type: String,
             required: true,
         },
-        kepek: [
-            {
-                type: String,
-                required: true,
-            },
-        ],
+        kep: {
+            type: String,
+            required: true,
+        },
     },
     { timestamps: true },
 );

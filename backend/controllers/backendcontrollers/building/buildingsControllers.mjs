@@ -36,10 +36,10 @@ const getOneBuilding = async (req, res) => {
 const updateOneBuilding = async (req, res) => {
     try {
         const id = req.params.id;
-        const { nev, leiras, kep } = req.body;
+        const { nev, leiras, kepek } = req.body;
         await BuildingModel.findByIdAndUpdate(
             { _id: id },
-            { $set: { nev: nev, leiras: leiras, kep: kep } },
+            { $set: { nev: nev, leiras: leiras, kepek: kepek } },
         );
 
         return res.status(200).json({ msg: 'Sikeres épületmódosítás!' });

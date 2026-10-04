@@ -15,16 +15,11 @@
 			<% buildings.forEach(building => { %>
                 <div class="building-container">
                     <h1><%= building.nev %></h1>
-                    <div class="building-images-container">
-                        <% building.kepek.forEach(kep => { %>
-                            <img src="<%= kep %>" alt="<%= building.nev %>" />
-                        <% }) %>
-                    </div>
+                    <img src="<%= building.kep %>" alt="<%= building.nev %>" />
                     <p><%= building.leiras %></p>
                     <div class="building-gombs">
                         <button onclick="torol('<%= building._id %>')">Töröl</button>
                         <a href="/api/buildings/<%= building._id %>">Lekér módosításra</a>
-                        <a href="/api/building-pictures/<%= building._id %>">Képek hozzáadása</a>
                     </div>
                 </div>
 			<% }) %>

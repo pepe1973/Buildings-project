@@ -27,9 +27,3 @@
     object-position: center;
     width: 80%;
 }
-
-.building-images-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1em;
-}

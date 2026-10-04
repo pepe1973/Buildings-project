@@ -25,4 +25,7 @@ app.use('/api/new-building', newBuildingRouter);
 import buildingsRouter from '../routes/backendroutes/building/buildingsRoutes.mjs';
 app.use('/api/buildings', buildingsRouter);
 
+import newBuildingPicturesRouter from '../routes/backendroutes/building/newBuildingPicturesRoutes.mjs';
+app.use('/api/building-pictures', newBuildingPicturesRouter);
+
 export default app;

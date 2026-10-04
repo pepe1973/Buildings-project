@@ -1,27 +1,20 @@
-const modosit = async (event, db) => {
+const modosit = async (event) => {
     event.preventDefault();
     const id = document.querySelector('#id-value').value;
     const nev = document.querySelector('#nev').value;
     const leiras = document.querySelector('#leiras').value;
-    const kepek = [];
+    const regikep = document.querySelector('#regi-kep').value;
+    const ujkep = document.querySelector('#uj-kep').value;
+    let kep = regikep;
 
-    for (let i = 0; i < db; i++) {
-        const regikep = document.querySelector(`#regi-kep${i + 1}`).value;
-        const ujkep = document.querySelector(`#uj-kep${i + 1}`).value;
-        const chBox = document.querySelector(`#chBox${i}`);
-        let kep = regikep;
-        if (ujkep) kep = regikep;
-        if (chBox.checked === false) {
-            kepek.push(kep);
-        }
-    }
+    if (ujkep) kep = ujkep;
 
     const response = await fetch(`/api/buildings/${id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ nev, leiras, kepek }),
+        body: JSON.stringify({ nev, leiras, kep }),
     });
 
     const valasz = await response.json();

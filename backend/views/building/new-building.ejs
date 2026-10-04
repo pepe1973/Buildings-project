@@ -16,42 +16,7 @@
         <%- include('../nav.ejs') %>
         <div id="new-building-container">
             <h1>Új épület felvétele</h1>
-            <form>
-                <table>
-                    <tr>
-                        <td><label for="nev">Név:</label></td>
-                        <td>
-                            <input
-                                type="text"
-                                id="nev"
-                            />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><label for="leiras">Leírás:</label></td>
-                        <td>
-                            <textarea
-                                id="leiras"
-                                rows="10"
-                                cols="30"
-                            ></textarea>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><label for="kep">Kép:</label></td>
-                        <td>
-                            <input
-                                type="text"
-                                id="kep"
-                            />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><button id="feltolt">Feltölt</button></td>
-                        <td></td>
-                    </tr>
-                </table>
-            </form>
+            <form id="ide"></form>
         </div>
         <script src="/js/building/building-feltolt.js"></script>
     </body>

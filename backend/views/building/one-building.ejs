@@ -1,80 +1,71 @@
 <!DOCTYPE html>
 <html lang="hu">
-    <head>
-        <meta charset="UTF-8" />
-        <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1.0"
-        />
-        <link
-            rel="stylesheet"
-            href="/css/building/new-building.css"
-        />
-        <title>Egy épület módosítása</title>
-    </head>
-    <body>
-        <%- include('../nav.ejs') %>
-        <div id="new-building-container">
-            <h1>Egy épület módosítása</h1>
-            <form>
-                <table>
-                    <td>
-                        <input
-                            type="hidden"
-                            id="id-value"
-                            value="<%= building._id %>"
-                        />
-                    </td>
-                    <tr>
-                        <td><label for="nev">Név:</label></td>
-                        <td>
-                            <input
-                                type="text"
-                                id="nev"
-                                value="<%= building.nev %>"
-                            />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><label for="leiras">Leírás:</label></td>
-                        <td>
-                            <textarea
-                                id="leiras"
-                                rows="10"
-                                cols="30"
-                            >
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/building/new-building.css" />
+    <title>Egy épület módosítása</title>
+  </head>
+  <body>
+    <%- include('../nav.ejs') %>
+    <div id="new-building-container">
+      <h1>Egy épület módosítása</h1>
+      <form>
+        <table>
+          <td>
+            <input type="hidden" id="id-value" value="<%= building._id %>" />
+          </td>
+          <tr>
+            <td><label for="nev">Név:</label></td>
+            <td>
+              <input type="text" id="nev" value="<%= building.nev %>" />
+            </td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><label for="leiras">Leírás:</label></td>
+            <td>
+              <textarea id="leiras" rows="10" cols="30">
 <%= building.leiras %></textarea
-                            >
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><label for="regi-kep">Régi kép:</label></td>
-                        <td>
-                            <input
-                                type="text"
-                                id="regi-kep"
-                                value="<%= building.kep %>"
-                            />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><label for="uj-kep">Új kép:</label></td>
-                        <td>
-                            <input
-                                type="text"
-                                id="uj-kep"
-                            />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <button onclick="modosit(event)">Módosít</button>
-                        </td>
-                        <td></td>
-                    </tr>
-                </table>
-            </form>
-        </div>
-        <script src="/js/building/building-modosit.js"></script>
-    </body>
+              >
+            </td>
+            <td></td>
+          </tr>
+          <% for( let i = 0; i < building.kepek.length; i++ ) { %>
+            <tr>
+                <td><label for="regi-kep<%= i + 1 %>">Régi kép <%= i + 1 %>:</label></td>
+                <td>
+                    <input
+                        type="text"
+                        id="regi-kep<%= i + 1 %>"
+                        value="<%= building.kepek[i] %>"
+                    />
+                </td>
+                <td>
+                    <input type="checkbox" id="chBox<%= i %>" />
+                </td>
+            </tr>
+            <tr>
+                <td><label for="uj-kep<%= i + 1 %>">Új kép <%= i + 1 %>:</label></td>
+                <td>
+                    <input
+                        type="text"
+                        id="uj-kep<%= i + 1 %>"
+                    />
+                </td>
+                <td></td>
+            </tr>
+          <% } %>
+          <tr>
+            <td>
+              <button onclick="modosit(event, '<%= building.kepek.length %>')">Módosít</button>
+            </td>
+            <td></td>
+            <td></td>
+          </tr>
+        </table>
+      </form>
+    </div>
+    <script src="/js/building/building-modosit.js"></script>
+  </body>
 </html>

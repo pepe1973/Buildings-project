@@ -3,7 +3,7 @@ import {
     getNewBuilding,
     postNewBuilding,
 } from '../../../controllers/backendcontrollers/building/newBuildingControllers.mjs';
-import pictureUploader from '../../../middlewares/onePictureToCloudinary.mjs';
+import pictureUploader from '../../../middlewares/morePicturesToCloudinary.mjs';
 
 const newBuildingRouter = express.Router();
 

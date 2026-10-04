@@ -5,8 +5,8 @@ import {
     getOneBuilding,
     updateOneBuilding,
 } from '../../../controllers/backendcontrollers/building/buildingsControllers.mjs';
-import pictureDeleter from '../../../middlewares/onePictureDeleteFromCloudinary.mjs';
-import pictureUploader from '../../../middlewares/onePictureToCloudinary.mjs';
+import pictureUploader from '../../../middlewares/morePicturesToCloudinary.mjs';
+import pictureDeleter from '../../../middlewares/morePicturesDeleteFromCloudinary.mjs';
 
 const buildingsRouter = express.Router();
 

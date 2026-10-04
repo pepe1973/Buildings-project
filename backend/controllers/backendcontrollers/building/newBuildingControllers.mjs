@@ -10,14 +10,9 @@ const getNewBuilding = (req, res) => {
 
 const postNewBuilding = async (req, res) => {
     try {
-        const { nev, leiras, kep } = req.body;
+        const { nev, leiras, kepek } = req.body;
 
-        if (!nev || !leiras || !kep) {
-            return res
-                .status(400)
-                .json({ msg: 'Minden mező kitöltése kötelező!' });
-        }
-        const newBuilding = new BuildingModel({ nev, leiras, kep });
+        const newBuilding = new BuildingModel({ nev, leiras, kepek });
         await newBuilding.save();
 
         return res.status(201).json({ msg: 'Létrejött az új épület!' });

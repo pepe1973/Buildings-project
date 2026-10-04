@@ -3,14 +3,6 @@ let alertMessage = 'Hány képpel dolgozzak?';
 if (alertMessage) {
     let szam = window.prompt(alertMessage);
     let tablazat = '<table>';
-    tablazat += '<tr>';
-    tablazat += `<td><label for="nev">Név:</label></td>`;
-    tablazat += `<td><input type="text" id="nev" /></td>`;
-    tablazat += '</tr>';
-    tablazat += '<tr>';
-    tablazat += `<td><label for="leiras">Leírás:</label></td>`;
-    tablazat += `<td><textarea id="leiras" rows="10" cols="30"></textarea></td>`;
-    tablazat += '</tr>';
     for (let i = 0; i < Number(szam); i++) {
         tablazat += '<tr>';
         tablazat += `<td><label for='kep${i + 1}'>Kép ${i + 1}: </td>`;
@@ -28,20 +20,20 @@ if (alertMessage) {
 
     feltoltBtn.addEventListener('click', async (event) => {
         event.preventDefault();
-        const nev = document.querySelector('#nev').value;
-        const leiras = document.querySelector('#leiras').value;
-        let kepek = [];
+        const id = document.querySelector('#epulet-id').value;
+        let kepek = document.querySelector('#epulet-kepek').value.split(',');
+
         for (let i = 0; i < szam; i++) {
             const kep = document.querySelector(`#kep${i + 1}`).value;
             kepek.push(kep);
         }
 
-        const response = await fetch('/api/new-building', {
-            method: 'POST',
+        const response = await fetch(`/api/building-pictures/${id}`, {
+            method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ nev, leiras, kepek }),
+            body: JSON.stringify({ kepek }),
         });
 
         const valasz = await response.json();
